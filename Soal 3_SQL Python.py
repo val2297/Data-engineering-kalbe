@@ -32,7 +32,8 @@ try:
 
     print("Data karyawan berhasil dimasukkan ke tabel'karyawan' dan commit berhasil dilakukan")
 #roll back apabila ada issue
-except :
+except mysql.connector.error as e:
      conn.rollback()
+     print(f"Terjadi kesalahan: {e}")
 # menutup koneksi ke server
 conn.close()
